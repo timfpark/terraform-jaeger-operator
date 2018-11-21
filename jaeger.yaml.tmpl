@@ -1,0 +1,14 @@
+apiVersion: io.jaegertracing/v1alpha1
+kind: Jaeger
+metadata:
+  name: ${name}
+  namespace: ${namespace}
+spec:
+  ingress:
+    enabled: false
+  strategy: production
+  storage:
+    type: elasticsearch
+    options:
+      es:
+        server-urls: http://${elasticsearch_client_endpoint}:9200

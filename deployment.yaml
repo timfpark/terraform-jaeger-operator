@@ -1,0 +1,16 @@
+apiVersion: io.jaegertracing/v1alpha1
+kind: Jaeger
+metadata:
+  name: jaeger
+spec:
+  agent:
+    strategy: DaemonSet
+  ingress:
+    enabled: false
+  strategy: production
+  storage:
+    type: elasticsearch
+    options:
+      es:
+        server-urls: http://elasticsearch-client.elasticsearch.svc.cluster.local:9200
+
